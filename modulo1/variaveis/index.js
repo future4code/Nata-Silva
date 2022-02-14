@@ -1,3 +1,15 @@
+/*Respostas exercicios 1:
+1: 	10
+	10 5
+
+2:	10 10 10
+
+3:	let horasPorDia = prompt("Quantas horas você trabalha por dia?")
+	let valorRecebidoDia = prompt("Quanto você recebe por dia?")
+	alert(`Voce recebe ${horasPorDia/valorRecebidoDia} por hora`
+*/
+
+
 
 // Parte 1
 
