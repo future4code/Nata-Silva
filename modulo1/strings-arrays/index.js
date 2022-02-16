@@ -37,16 +37,17 @@
 
 // 3:
 
-/*issoEhUmaArrayIndependenteDoNome = ["",""]*/
-// push serve pra adicionar coisas na array
+/*
 
-// let listaDeTarefas = []
+let listaDeTarefas = []
 
-// listaDeTarefas.push = [prompt ("Escreva a primeira tarefa que voce tem que fazer" ), 
-// prompt ("Escreva a segunda tarefa" ), prompt ("Escreva a terceira " )]
-// console.log (listaDeTarefas)
+listaDeTarefas.push (prompt ("Escreva a primeira tarefa que voce tem que fazer" )) 
+listaDeTarefas.push (prompt ("Escreva a segunda tarefa"))
+listaDeTarefas.push (prompt ("Escreva a terceira"))
+console.log (listaDeTarefas)
 
-// let realizada = prompt ("Digite o numero da tarefa que vc realizou" )
-// listaDeTarefas.splice  ((realizada-1), 1)
-// console.log (listaDeTarefas)
-
+let realizada = prompt ("Digite o numero da tarefa que vc realizou OPCOES: 0, 1, 2" )
+//listaDeTarefas.splice  ((realizada-1), 1) para eliminar o 0//
+listaDeTarefas.splice  (realizada, 1)
+console.log (listaDeTarefas)
+*/
