@@ -9,7 +9,7 @@
 //      f: 9
 
 //  2:
-//     SUBI NOM ÔNIBUS EM MIRROCOS 27
+//     SUBI NUM ÔNIBUS EM MIRROCOS 27
 /*________________________________________________________________*/
 
 
