@@ -42,7 +42,7 @@
 
 // let listaDeTarefas = []
 
-// listaDeTarefas = [prompt ("Escreva a primeira tarefa que voce tem que fazer" ), 
+// listaDeTarefas.push = [prompt ("Escreva a primeira tarefa que voce tem que fazer" ), 
 // prompt ("Escreva a segunda tarefa" ), prompt ("Escreva a terceira " )]
 // console.log (listaDeTarefas)
 
