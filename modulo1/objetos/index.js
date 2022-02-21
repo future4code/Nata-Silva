@@ -73,27 +73,27 @@
 // console.log (funcao (pessoa2))
 
 //// 3:
-//let carrinho = []
-//let fruta1 = {
+// let carrinho = []
+// let fruta1 = {
 //    nome: "maçã",
 //    disponibilidade: true 
-//}
-//let fruta2 = {
+// }
+// let fruta2 = {
 //    nome: "banana",
 //    disponibilidade: true
-//}
-//let fruta3 = {
+// }
+// let fruta3 = {
 //    nome: "abacaxi",
 //    disponibilidade: true 
-//}
+// }
 //
-//function carrinhoCheio(fruta) {
+// function carrinhoCheio(fruta) {
 //    carrinho.push(fruta)
-//}
-//carrinhoCheio(fruta1)
-//carrinhoCheio(fruta2)
-//carrinhoCheio(fruta3)
+// }
+// carrinhoCheio(fruta1)
+// carrinhoCheio(fruta2)
+// carrinhoCheio(fruta3)
 
-console.log (carrinho)
+// console.log (carrinho)
 
 
