@@ -1,0 +1,30 @@
+.titulo {
+    background-color: darkgray;
+    color:rgb(158, 44, 173);
+    border-radius: 10px;
+}
+
+
+.subtitulo {
+font-family: Arial black;
+}
+
+.img {
+ height: 40px;
+
+}
+
+.menu {
+    background-color: aqua;
+    display: flex;
+    justify-content: space-around;
+    border-radius: 50px;
+}
+
+
+
+
+
+
+
+
