@@ -68,13 +68,13 @@ div img {
   **/
 
 #container-de-descricao {
+    text-align: center;
     padding-top: 50%;
     background-color: #2274a5;
     color: white;
 }
 
 #container-de-descricao>ol {
-
     padding: 15px 0px;
     text-align: center;
     ;
