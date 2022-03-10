@@ -33,8 +33,9 @@ div>p:first-child {
     display: inline;
 }
 
-div img {
-    background: black;
+#imgPesquisa {
+    height: 20px;
+    width: auto;
 }
 
 .botao-amarelo {
@@ -118,7 +119,10 @@ td button {
 
 .container-do-search {
     margin-top: 20px;
-    height: 100px;
+    height: 100px;   
+}
+imgLupa {
+    height: 1px ;
 }
 
 
