@@ -25,6 +25,7 @@ button:focus {
     color: white;
 }
 
+
 img {
     width: 50px;
 }
@@ -137,5 +138,8 @@ imgLupa {
 }
 
 #back-button:hover {
-    background-color: #635a3d
+    background-color: #635a3d60
+}
+#back-button:active {
+ color:white;
 }
