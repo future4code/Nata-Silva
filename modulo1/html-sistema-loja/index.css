@@ -1,26 +1,73 @@
-.titulo {
-    background-color: darkgray;
-    color:rgb(158, 44, 173);
+header {
+    color:rgb(238, 224, 240);
     border-radius: 10px;
 }
-
-
-.subtitulo {
-font-family: Arial black;
+header .titulo {
+    display: block;
+    text-align: right;
+    color: rgb(255, 255, 255);
+    margin-bottom: 0%;
 }
-
-.img {
- height: 40px;
-
+header a {
+    text-decoration: none;
 }
-
-.menu {
-    background-color: aqua;
+header .subtitulo {
+    position: relative;
+    top: -5px;
+    display: block;
+    text-align: right;
+    margin-right: 5px;
+    margin-top: 0%;
+    }
+header .subtitulo:hover {
+ color: rgb(214, 178, 247);
+}    
+header .menu {
+    background-color: rgba(0, 0, 0, 0.185);
     display: flex;
     justify-content: space-around;
-    border-radius: 50px;
+    margin: none;
+}
+.menu a {
+    margin: auto; 
+    display: inline-block;
+    color: rgb(211, 211, 211);
+    font-weight: bold; /*negrito*/
+    margin: 10px
+    border: none;
+}
+.menu a:hover {
+    color: rgb(0, 0, 0);
+    background-color: rgba(250, 250, 250, 0.877);
+    border-radius: 10px;
+    transition: 1s;
 }
 
+body {
+    background-image: url(/imgs/fundo.jpg) ;
+    padding: 50px;
+    display: block ;
+    margin-left: 80px;
+    margin-right:80px ;
+    max-width: 1200px;  
+    color: aliceblue;
+}
+button:active {
+    padding: 15px;
+}
+.informaçãoDoTexto {
+    border-bottom: double;
+    border-top: double;
+}
+footer {
+    text-align: center;
+    background-color: rgba(78, 74, 74, 0.329);
+    border-radius: 20px;
+    display: block;
+}
+footer .img {
+ height: 40px;
+}
 
 
 
