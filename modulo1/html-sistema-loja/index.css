@@ -33,7 +33,7 @@ header .menu {
     display: inline-block;
     color: rgb(211, 211, 211);
     font-weight: bold; /*negrito*/
-    margin: 10px
+    margin: 10px;
     border: none;
 }
 .menu a:hover {
@@ -50,7 +50,7 @@ body {
     margin-left: 80px;
     margin-right:80px ;
     max-width: 1200px;  
-    color: aliceblue;
+    color: rgb(255, 255, 255);
 }
 button:active {
     padding: 15px;
@@ -62,7 +62,7 @@ button:active {
 footer {
     text-align: center;
     background-color: rgba(78, 74, 74, 0.329);
-    border-radius: 20px;
+    border-radius: 100px;
     display: block;
 }
 footer .img {
