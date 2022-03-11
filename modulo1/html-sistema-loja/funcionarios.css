@@ -1,0 +1,12 @@
+.corFuncionarios {
+    color: rgb(43, 226, 43);
+    font-size: larger;
+}
+#funcionarios {
+  font-family: Arial Black;
+  background-image: url(../html-sistema-loja/150926165742__85730600_monkey2.jpg);
+  margin: 50px ;
+  padding: 80px;
+  color: red;
+  font-size:xx-large;
+}
