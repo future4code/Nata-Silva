@@ -35,6 +35,7 @@ header .menu {
     font-weight: bold; /*negrito*/
     margin: 10px;
     border: none;
+    
 }
 .menu a:hover {
     color: rgb(0, 0, 0);
@@ -52,6 +53,7 @@ body {
     max-width: 1200px;  
     color: rgb(255, 255, 255);
 }
+
 button:active {
     padding: 15px;
 }
