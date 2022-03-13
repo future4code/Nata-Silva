@@ -128,12 +128,14 @@ h4 {
 }
 .img-projeto {
     display: flex;
-    width: 80%;
-    margin-right: 30px;
+    width: 60%;
+    margin-right: 40px;
+    margin-top: 20px;
+    margin-bottom: 15px;
 }
 .img-projeto:hover {
     display: flex ;
-    width: 100%;
+    width: 70%;
     transition: 1s;
 
 }
