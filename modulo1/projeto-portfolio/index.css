@@ -87,6 +87,7 @@ h5 {
 
 
 .tabelas {
+    display: flex;
     text-align: center;
     border-radius: 30px;
     background-color: #4696ff3b;
@@ -97,7 +98,6 @@ h5 {
     padding-left: 10px;
     margin-left: auto;
     margin-right: auto;
-    width: 4000px 500px;
 }
 h4 {
     font-size: x-large;
@@ -122,19 +122,19 @@ h4 {
     font-size: 30px;
 }
 .img-projeto {
-    width: 340px;
+    display: flex;
+    width: 80%;
     margin-right: 30px;
 }
 .img-projeto:hover {
-    width: 450px ;
+    display: flex ;
+    width: 100%;
     transition: 1s;
-    animation-name: aumentar;
 
 }
 h6 {
-    margin-top: -15px;
-    margin-right: 20px;
-text-align: right;
+    margin-top: -20px;
+    text-align: center;
 }
 footer {
     margin: auto 10% auto 10%;
@@ -148,7 +148,7 @@ button {
     background-color: rgba(214, 182, 182, 0.151);
     border-radius: 5px;
     text-align: center;
-    margin: 1px 1vw 30px 40px;
+    margin: 1px 1vw 30px 10px;
     padding: 10px 30px;
 
 }
@@ -190,7 +190,7 @@ textarea {
     color: black;
     border-radius: 5px;
     border: 1px solid rgba(27, 108, 179, 0.61);
-    
+
 }
 
 #botaoEnviar {
@@ -251,4 +251,4 @@ textarea {
 
 a {
     text-decoration: none;
-}
+} 
