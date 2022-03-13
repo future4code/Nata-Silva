@@ -70,7 +70,9 @@ h3 {
     text-justify: auto;
     font-size: 20px;
 }
-
+h5 {
+    font-size: x-large;
+}
 .minhafoto{
     margin: auto 5% 5% 5%; 
     width: 200px;
@@ -129,7 +131,11 @@ h4 {
     animation-name: aumentar;
 
 }
-
+h6 {
+    margin-top: -15px;
+    margin-right: 20px;
+text-align: right;
+}
 footer {
     margin: auto 10% auto 10%;
     text-align:left;
