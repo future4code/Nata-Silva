@@ -52,8 +52,7 @@ h3 {
     /* grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 10fr; */
     /* row-gap: 2px; */
-    
-    height: 90vh;
+    height: 100vh;
      
 }
 .ladoesquerdo img {
@@ -67,9 +66,10 @@ margin-top: 10px;
 .ladodireito {
     width: 100%;
     padding: 40px;
+    padding-bottom: 0px;
     display: grid;
-    grid-template-columns: 15% 15% 15% 15%;
-    grid-template-rows: 50% 50% ;
+    grid-template-columns: 25vh 25vh 25vh 25vh;
+    grid-template-rows: 43vh 43vh ;
     row-gap: 20px;
     column-gap: 20px;
     
@@ -83,6 +83,7 @@ h4 {
     border-color:rgba(77, 76, 76, 0.541) ;
     background-color: rgba(248, 245, 244, 0.5);
     text-align: center;
+    box-shadow:  2px 2px 5px darkgray;
 }
 .bolos img {
     width: 100%;
@@ -93,7 +94,7 @@ footer {
     /* text-align: center; */
     justify-content: center;
     background-color: mediumvioletred;
-    position: sticky;
+    /* position: sticky; */
     bottom: 0;
     height: 100%;
 }
