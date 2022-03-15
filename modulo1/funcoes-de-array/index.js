@@ -22,8 +22,8 @@
     //     { nome: "Caramelo", raca: "Vira-lata"},
     //  ]
 
-//     const pets2 = pets.map((i) => {
-//         return i.nome
+    // const pets2 = pets.map((i) => {
+    //     return i.nome
 //     })
 //     console.log (pets2)
 //     //B:
