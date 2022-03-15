@@ -1,0 +1,261 @@
+* {
+    margin: auto;
+    padding:0;
+    box-sizing: border-box; 
+    /* background-repeat: ; */
+    color: rgb(255, 255, 255);
+}
+body {
+    margin-top:40px;
+    background-color: black;
+    background-image: url(imgs/fundo.jpg);  
+}
+#menu {
+    background-color: rgba(0, 255, 255, 0.055);
+}
+#menu ul {
+    top: 0;
+    width: 100%;
+    position: fixed;
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    padding: 10px 20px ;
+    background-color: rgba(69, 160, 235, 0.39);
+    border-radius: 3px;
+}
+#menu li:hover {
+    background-color: rgba(19, 80, 172, 0.308);
+    border-radius: 5px;
+}
+
+header {
+    display: block;
+    justify-content: center;
+    align-items: center;
+}
+
+
+h1{
+    margin-top: 20%;
+    color: rgb(183, 239, 247);
+    text-align: center;
+    font-size: 6em;
+    font-family: 'Roboto Slab', serif;
+    letter-spacing: top 9px;
+    text-shadow: 0.08em 0.05em 0.05em rgba(253, 253, 253, 0.185)
+}
+h2 {
+    color: rgb(215, 239, 240);
+    margin-top: 1%;
+    margin-bottom: 330px;
+    text-align: center;
+    font-size: 1.1em;
+    font-family: 'Roboto Slab', serif;
+    letter-spacing: 5px;
+    text-shadow: 0.1em 0.2em 0.1em rgba(253, 253, 253, 0.185)
+}
+
+
+
+h3 {
+    margin-left: 5% ;
+    text-align: left;
+    font-size: 250%;
+}
+.texto {
+    margin: auto 10% 5% 10%;
+    text-align:left;
+    border-top:ridge rgba(69, 160, 235, 0.562);
+    text-justify: auto;
+    font-size: 20px;
+}
+h5 {
+    font-size: x-large;
+}
+.minhafoto{
+    margin: auto 5% 5% 5%; 
+    width: 200px;
+    float: right;
+    border-radius: 100%;
+}
+.minhafoto:hover{
+    width: 250px ;
+    transition: 0.5s;
+
+}
+
+
+.tabelas {
+    display: flex;
+    text-align: center;
+    border-radius: 30px;
+    background-color: #4696ff10;
+    border: #e4e4e400;
+    border-style: groove;
+    border: 1px solid rgba(69, 160, 235, 0.212);
+    margin-right:60px;
+    padding-left: 10px;
+}
+.tabelas {
+    min-width: 888;
+    margin: auto;
+}
+h4 {
+    font-size: x-large;
+    text-align: center;
+    margin: auto;
+}
+h4 {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    text-align: center;
+    font-size: x-large;
+}
+
+#projetos{
+    padding-bottom: 20px;
+    padding-right: 15px;
+    width: 200px;
+    font-size: 30px;
+}
+
+#acesso {
+    padding-bottom: 20px;
+    padding-left: 15px;
+    width: 200px;
+    font-size: 30px;
+}
+.img-projeto {
+    display: flex;
+    width: 40%;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+.img-projeto:hover {
+    display: flex ;
+    width: 50%;
+    transition: 1s;
+
+}
+h6 {
+    text-align: center;
+}
+footer {
+    margin: auto 10% auto 10%;
+    text-align:left;
+    border-top: double rgba(69, 160, 235, 0.562)
+}
+
+
+button {
+    border-color: rgba(240, 248, 255, 0.548);
+    background-color: rgba(214, 182, 182, 0.151);
+    border-radius: 5px;
+    text-align: center;
+    margin: 1px 1vw 30px 10px;
+    padding: 10px 30px;
+
+}
+.contatacao1 {
+display:inline-flex;
+margin: auto auto -15px auto ; 
+width: 40px;
+}
+
+/* Sobre Mim */
+
+#contatoMenu {
+    background-color: rgba(27, 108, 179, 0.61);
+}
+
+input {
+    color: black;
+    border-radius: 5px;
+    border: 1px solid rgba(27, 108, 179, 0.61);
+}
+
+.texto2 {
+    margin: 40px 10% 5% 10%;
+    text-align:left;
+    border-top:ridge rgba(69, 160, 235, 0.562);
+    text-justify: auto;
+    font-size: 20px;
+}
+.caixanome {  
+    height: 23px;
+    padding-top: -100px;
+}
+.caixaemail{
+    height: 23px;
+    padding-top: -100px;
+}
+
+textarea {
+    color: black;
+    border-radius: 5px;
+    border: 1px solid rgba(27, 108, 179, 0.61);
+
+}
+
+#botaoEnviar {
+    border: 1px solid rgba(27, 108, 179, 0.61);
+    border-radius: 5px;
+    padding: 3px;
+}
+
+
+.linkmymail {
+ color: gold;
+}
+
+.linkmymail:hover {
+    color: black;
+    background-color: gold;
+    padding: 1px 1px;
+    margin: 3px;
+    border-radius: 5px;
+}
+
+.hDeContato {
+    margin-top: 10%;
+    font-size: 180%;
+    font-weight: 100;
+    margin-bottom: 3%;
+}
+
+.textcontato {
+    margin-left: 50px;
+}
+#rede1 {
+    display: inline;
+    margin: auto; 
+    width: 40px;
+    float: right;
+
+}
+
+#rede2 {
+    display: inline;
+    margin: auto 10px ; 
+    width: 40px;
+    float: right;
+}
+.botaovoltar {
+    border: double rgba(4, 0, 255, 0.349);
+    margin: 0%;
+    margin-top: 7%;
+    float: left;
+}
+#logolabenu {
+    display: inline;
+    margin: auto 10px ; 
+    width: 50px;
+    float:right;
+}
+
+a {
+    text-decoration: none;
+} 
