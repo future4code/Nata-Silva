@@ -1,8 +1,15 @@
 * {
     margin: 0;
     padding: 0;
-    
 }
+
+.divow {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+
 
 h2 {
     margin-left: 3% ;
@@ -29,7 +36,7 @@ button {
     row-gap: 3%;
     column-gap: 3%; */
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(40vh, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(30vh, 1fr));
         gap: 10px;
 }
 main {
@@ -51,7 +58,7 @@ img {
 }
 video {
     display: block;
-    width: 750px;
+    width: 80%
 }
 
 .voltar {
@@ -69,6 +76,7 @@ a {
 }
 
 footer {
+    padding: 5px;
     text-align: center;
     background-color: rgb(146, 27, 27);
     bottom: 0;
