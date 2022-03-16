@@ -31,10 +31,7 @@ button {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(40vh, 1fr));
         gap: 10px;
-
 }
-
-
 main {
     margin: 5% 5% 10% 5% ;
 }
@@ -72,6 +69,7 @@ a {
 }
 
 footer {
+    text-align: center;
     background-color: rgb(146, 27, 27);
     bottom: 0;
 
