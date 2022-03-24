@@ -40,6 +40,11 @@ const PostPhoto = styled.img`
   width: 100%;
 `
 
+
+
+
+
+
 class Post extends React.Component {
   state = {
     curtido: false,
@@ -48,6 +53,9 @@ class Post extends React.Component {
     numeroComentarios: 0
   }
 
+
+
+  
   onClickCurtida = () => {
     this.setState({
       curtido: !this.state.curtido,
