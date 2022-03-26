@@ -3,6 +3,7 @@ import styled from "styled-components"
 
 
 const MainContainer = styled.div`
+background-color: black;
 width: 100vw ;
 height: 100vh ;
 display: flex;
@@ -10,8 +11,9 @@ justify-content: center;
 
 `
 const Mensagem = styled.div`
+  background-image:url(https://i.pinimg.com/originals/8e/6b/e9/8e6be91a01ba06f18b9eddfb944b2b42.jpg) ;
   height: 99.5vh;
-  width: 500px;
+  width: 450px;
   display: flex;
   flex-direction: column;
   justify-content: end;
@@ -19,7 +21,7 @@ const Mensagem = styled.div`
   border: 1px solid black ;
 `
 const Zap = styled.div`
- padding: 20px;
+padding: 20px;
 display: flex;
 flex-direction: column;
 justify-content: flex-start;
@@ -29,18 +31,25 @@ spam {
 }
 `
 
-
-
 const Botoes = styled.div `
 display: flex;
+
+button {
+  background-color: #008B8B;
+}
 `
+
+
+
+
 const NomeInput = styled.input `
+background-color:#2F4F4F;
 width: 100px;
 `
 const MsgInput = styled.input `
-width: 330px;
+background-color:#2F4F4F;
+width: 56vh;
 `
-
 
 class Whatslab extends React.Component {
   state = {
@@ -58,7 +67,7 @@ class Whatslab extends React.Component {
 
     const novoPessoas = [...this.state.chat, novaPessoa];
 
-    this.setState({ chat: novoPessoas, onclick:true });
+    this.setState({ chat: novoPessoas, onclick:true,  valorInputMSG: ""});
   };
 
   onChangeInputNome = (event) => {
