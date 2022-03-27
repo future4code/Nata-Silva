@@ -21,6 +21,7 @@ const Mensagem = styled.div`
   border: 1px solid black ;
 `
 const Zap = styled.div`
+  color: aliceblue;
 padding: 20px;
 display: flex;
 flex-direction: column;
@@ -33,7 +34,6 @@ spam {
 
 const Botoes = styled.div `
 display: flex;
-
 button {
   background-color: #008B8B;
 }
@@ -44,11 +44,11 @@ button {
 
 const NomeInput = styled.input `
 background-color:#2F4F4F;
-width: 100px;
+width: 90px;
 `
 const MsgInput = styled.input `
 background-color:#2F4F4F;
-width: 56vh;
+width: 53vw;
 `
 
 class Whatslab extends React.Component {
