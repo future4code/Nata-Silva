@@ -48,7 +48,7 @@ width: 18vh;
 `
 const MsgInput = styled.input `
 background-color:#2F4F4F;
-width: 58vh;
+width: 44vh;
 `
 
 class Whatslab extends React.Component {
