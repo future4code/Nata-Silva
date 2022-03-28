@@ -35,6 +35,8 @@ export default class App extends React.Component {
         this.setState({ paginas: "etapa-3" });
       }else if (this.state.paginas === "etapa-3"){
         this.setState({ paginas: "final" });
+      }else {
+        this.setState({ paginas: "etapa-1" });
       }
     };
 
