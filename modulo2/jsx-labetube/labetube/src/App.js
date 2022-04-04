@@ -19,7 +19,7 @@ function App() {
         </header>
 
         <main>
-            <nav className="menu-vertfical">
+            <nav className="menu-vertical">
                 <ul>
                     <li className="botoes-meunu-vertical">Início</li>
                     <li className="botoes-meunu-vertical">Em alta</li>
