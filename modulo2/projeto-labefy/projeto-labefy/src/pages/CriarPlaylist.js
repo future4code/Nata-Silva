@@ -1,42 +1,54 @@
 import React from "react";
 import axios from "axios";
 import styled from "styled-components"
+import { render } from "@testing-library/react";
 
 
 const MainContainer = styled.div`
-  width: 100%;
-  padding: 10px;
-  display: flex;
-  flex-direction:column;
-  margin: 20px 0;
-  /* box-shadow: 3px 3px 4px 2px grey;
-  border-radius: 10px; */
-`;
+color: #ffffff;
+background-color: #121212;
 
-const DivPlaylist = styled.div` 
-   display: flex;
-   align-items: flex-start;
-   align-content: space-around;
-   label {
-       align-items: center;
-       margin-top: 2px;
-       padding:0px 5px 0px 5px;
-   }
-   input {
-       align-items: center;
-       background: azure;
-       padding-right: 10%;
-   }
-   button {
-       align-items: center;
-       background-color: azure;
-   }
-`;
 
-const DivImpressao = styled.div` 
-background-color: black;
-   
-`;
+display: flex;
+  height: 100vh;
+  width: 100vw;
+  background-size: cover
+`
+
+const Menu = styled.div`
+background-color: #000000;
+width: 40vh;
+`
+
+const PlaylistsECriar = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+align-items: flex-start;
+width: 80%;
+`
+const CriadorPlaylist = styled.div`
+display: flex;
+flex-direction: column;
+`
+const PlaylistsFeitas = styled.div`
+margin: 20px 0px 0px 20px;
+button {
+    border-radius: 4px;
+    background-color: #4d4d4d ;
+    color: white
+}
+
+`
+export const ScrollContainer = styled.div`
+    width: 100%;
+    height:70%;
+    overflow: auto;
+    flex: none;
+    flex-flow: column nowrap;
+    overflow-y: scroll;
+`
+
 
 
 
@@ -57,10 +69,6 @@ export default class CriarPlaylist extends React.Component {
     componentDidMount = () => {
         this.getPlaylist()
     }
-    //  componentDidUpdate = () => {
-    //     this.getPlaylist()
-    // }
-
     //adicionar texto a string
     adicionarAPlaylist = (event) => {
         this.setState({ playlist: event.target.value })
@@ -115,7 +123,7 @@ export default class CriarPlaylist extends React.Component {
                     alert(err.response.data.message);
                 });
         } else {
-            alert(`Usuário não deletado`);
+            alert(`Playlist não deletada`);
         }
     };
 
@@ -127,41 +135,64 @@ export default class CriarPlaylist extends React.Component {
         if (this.state.playlists.length > 0) {
             mapeamento = this.state.playlists.map((playlist) => {
                 return (
-                    <div>
-                        <p>
-                            <h3>{playlist.name}</h3>
-                            <button
-                                key={playlist.id}
-                                onClick={() => this.props.irParaPlaylist(playlist.id)}
-                            >
-                                Acessar Playlist
-                            </button>
+                    <PlaylistsFeitas
+                        key={playlist.id}>
+                        <h3>Playlist: "{playlist.name}"</h3>
+                        <button
+                            key={playlist.id}
+                            onClick={() => this.props.irParaPlaylist(playlist.id, playlist.name)}
+                        >
+                             Acessar Playlist 
+                        </button>
 
-                            <button onClick={() => this.deletarplaylist(playlist)}>
-                                Deletar
-                            </button>
-                        </p>
-                    </div>
+                        <button onClick={() => this.deletarplaylist(playlist)}>
+                            X 
+                        </button>
+                    </PlaylistsFeitas>
                 )
             })
         } else {
             mapeamento = <p> Carregando... </p>
         }
         return (
+
             <div>
+
                 <MainContainer>
-                    <DivPlaylist>
-                        <label>Nome da Playlist: </label>
-                        <input
-                            placeholder="Brega/Funk do Recife"
-                            value={this.state.playlist}
-                            onChange={this.adicionarAPlaylist}
-                        />
-                        <button onClick={() => this.adicionarAArray(this.state.playlist)}> Salvar </button>
-                    </DivPlaylist>
-                    <div>
-                    {mapeamento}
-                    </div>
+
+                    <Menu>
+                        <h1>Labefy</h1>
+
+                        <h4>Sua Plataforma de Playlists personalizadas</h4>
+                        <button onClick={() => this.props.irParaVerPlaylist(mapeamento)}>Playlists Feitas</button>
+                        <br/>
+                        <button onClick={this.props.irCriarPLaylist}>Pagina Inicial</button>
+                    </Menu>
+
+                    <PlaylistsECriar>
+                        <ScrollContainer>
+                            {mapeamento}
+                        </ScrollContainer>
+
+
+                        <CriadorPlaylist>
+                            <h3>Criar Playlists</h3>
+                            <br/>
+                            <label>Nome da Nova Playlist: </label>
+                            <input
+                                placeholder="Brega/Funk do Recife"
+                                value={this.state.playlist}
+                                onChange={this.adicionarAPlaylist}
+                                onKeyPress={event => {
+                                    if (event.key === 'Enter') {
+                                        this.adicionarAArray(this.state.playlist)
+                                    }
+                                }}
+                            />
+                            <button onClick={() => this.adicionarAArray(this.state.playlist)}> Salvar </button>
+                        </CriadorPlaylist>
+                    </PlaylistsECriar>
+
 
                 </MainContainer>
             </div>
