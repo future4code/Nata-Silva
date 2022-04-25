@@ -23,9 +23,9 @@ const TelaPerfil = (props) => {
 
     }
 
-    const choosePerson = (id) => {
+    const choosePerson = () => {
         const body = {
-            id: id,
+            id: perfil.id,
             choice: true
         }
         axios.post(`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/nata-silva-shaw/choose-person`, body)
