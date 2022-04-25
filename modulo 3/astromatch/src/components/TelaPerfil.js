@@ -58,6 +58,7 @@ const TelaPerfil = (props) => {
                 <button onClick={() => { noChoosePerson(perfil.id) }}>❌</button>
                 <button onClick={() => { choosePerson(perfil.id) }}>❤️</button>
             </div>
+            {/* aa */}
         </div>
     )
 }
