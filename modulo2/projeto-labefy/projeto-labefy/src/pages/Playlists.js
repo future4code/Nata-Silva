@@ -167,7 +167,7 @@ export default class Playlists extends React.Component {
                                 <Musicas key={musica.id}>
                                     <p>
                                         <h3>{musica.name} - {musica.artist}</h3>
-                                        <audio controls src={musica.url} type="audio/mp3" ></audio>
+                                        <audio controls src={musica.url} type="audio/mp3" />
                                         <br/>
                                         <button onClick={() => this.deletarMusica(musica)}> Deletar </button>
                                     </p>
