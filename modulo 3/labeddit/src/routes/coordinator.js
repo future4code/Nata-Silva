@@ -11,9 +11,9 @@ export const irPraFeed = (navigate) => {
     navigate("/feed")
 }
 
-// export const goToPostPage = (navigate) => {
-//     navigate(/feed/post/${id})
-// }
+export const goToPostPage = (navigate, id) => {
+    navigate(`/feed/post/${id}`)
+}
 
 export const voltar = (navigate) => {
     navigate(-1)

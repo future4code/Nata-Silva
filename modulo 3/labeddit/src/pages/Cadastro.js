@@ -5,6 +5,10 @@ import { Button, TextField } from "@mui/material";
 import { useForms } from "../hooks/useForms";
 import axios from "axios";
 
+
+
+
+
 export default function Cadastro() {
     const navigate = useNavigate()
     const [form, onChange] = useForms({nome: "", email:"", senha:""})
@@ -31,7 +35,7 @@ export default function Cadastro() {
         <div>
             <div>
                 <img src="" />
-                <button> Entrar </button>
+                <button onClick={() => voltar(navigate)}> Entrar </button>
                 <h3>Olá, Bem Vindas ao LabEddit ;)</h3>
             </div>
             <div>

@@ -10,8 +10,8 @@ export default function Login() {
     const [form, onChange] = useForms({ email: "", senha: "" })
 
 
-    const postarLogin = () => {
-
+    const postarLogin = (event) => {
+        event.preventDefault()
         const body = {
             "email": form.email,
             "password": form.senha
@@ -27,6 +27,9 @@ export default function Login() {
             })
             .catch((err) => { alert("Email ou Senha Incorreta, tem certeza que está cadastrado?") })
     }
+
+    
+
     return (
         <div>
             <div>
@@ -34,7 +37,7 @@ export default function Login() {
                 <p>O Projeto de Rede Social da Labenu</p>
             </div>
 
-            <Box>
+            <Box component={"form"} onSubmit={postarLogin}>
                 <TextField
                     name="email"
                     type="email"
@@ -52,12 +55,12 @@ export default function Login() {
                     value={form.senha}
                     onChange={onChange}
                     sx={{ width: "60vh", mb: "10px" }} />
+                <br />
+                <div>
+                    <Button type="submit" sx={{ "&:hover": { backgroundColor: "#439ea1", color: "black" } }}>Continuar</Button>
+                    <Button onClick={() => irPraCadastro(navigate)} sx={{ "&:hover": { backgroundColor: "#439ea1", color: "black" } }}>Criar Uma conta</Button>
+                </div>
             </Box>
-            <br />
-            <div>
-                <Button onClick={() => postarLogin()} sx={{ "&:hover": { backgroundColor: "#439ea1", color: "black" } }}>Continuar</Button>
-                <Button onClick={() => irPraCadastro(navigate)} sx={{ "&:hover": { backgroundColor: "#439ea1", color: "black" } }}>Criar Uma conta</Button>
-            </div>
 
         </div >
     )

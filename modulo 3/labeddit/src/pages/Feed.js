@@ -3,13 +3,23 @@ import { voltar } from "../routes/coordinator"
 import { useNavigate } from "react-router-dom"
 import axios from "axios"
 import { useForms } from "../hooks/useForms";
+import { CardFeed } from "../components/CardFeed";
+import { useProtectedPage } from "../hooks/useProtect";
+import { Box, Button, TextField } from "@mui/material";
 
 export default function Feed() {
-    const [post, setPost] = useState([])
+    useProtectedPage()
+    
     const navigate = useNavigate()
-    const [form, onChange] = useForms({ titulo: "", body: "" })
+    const [post, setPost] = useState([])
+    const [form, onChange, clean] = useForms({ titulo: "", body: "" })
 
 
+    const deslogar = () => {
+        window.localStorage.removeItem('token')
+        navigate("/")
+    }
+    
     const criarPosts = () => {
         const url = "https://labeddit.herokuapp.com/posts"
         const body = {
@@ -28,10 +38,11 @@ export default function Feed() {
                     }
                 })
             .then((res) => {
-               pegarPosts()
+                pegarPosts()
+                clean()
             })
-            .catch((err) => { console.log(err.response) })
-        
+            .catch((err) => { alert(err.response) })
+
     }
 
 
@@ -47,9 +58,8 @@ export default function Feed() {
             })
             .then((res) => {
                 setPost(res.data)
-                console.log(res.data)
             })
-            .catch((err) => { console.log(err.response.data) })
+            .catch((err) => { alert(err.response.data) })
     }
 
     useEffect(() => {
@@ -60,38 +70,39 @@ export default function Feed() {
         <div>
             <div>
                 <img src="" />
-                <button onClick={() => voltar(navigate)}> Logout </button>
+                <button onClick={deslogar}> Logout </button>
             </div>
 
-            <div>
-                <input placeholder="Titulo do Post"
+            <Box component={"form"} onSubmit={criarPosts}>
+                <TextField 
+                    placeholder="Titulo do Post"
                     value={form.titulo}
                     onChange={onChange}
                     name="titulo"
-                ></input>
+                ></TextField>
                 <br />
-                <textarea placeholder="Escreva Seu Post..."
+                <TextField 
+                    placeholder="Escreva Seu Post..."
                     value={form.body}
                     onChange={onChange}
                     name="body"
-                ></textarea>
+                ></TextField>
                 <br />
-                <button onClick={() => criarPosts()} >Postar</button>
+                <Button type="submit" sx={{ "&:hover": { backgroundColor: "#439ea1", color: "black" } }} > Postar </Button>
                 <p>________________________________</p>
-            </div>
+            </Box>
 
             <div>
                 {post.map((post) => {
                     return (
-                        <div>
-
-                            <p>Eviado Por:{post.username}</p>
-                            <h3>{post.title}</h3>
-                            <li>{post.body}</li>
-                            <button> ↕{post.voteSum} </button>
-                            <button>Comentarios: {post.commentCount}</button>
-                            <br /><br /><br />
-                        </div>
+                        <CardFeed
+                            username={post.username}
+                            title={post.title}
+                            body={post.body}
+                            voteSum={post.voteSum}
+                            commentCount={post.commentCount}
+                            id={post.id}
+                        />
                     )
                 })}
             </div>

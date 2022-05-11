@@ -13,7 +13,7 @@ export default function Router() {
                 <Route index element={<Login />} />
                 <Route path="/cadastro" element={<Cadastro />} />
                 <Route path="/feed" element={<Feed />} />
-                <Route path="/post" element={<Post />} />
+                <Route path="/feed/post/:id" element={<Post />} />
             </Routes>
         </BrowserRouter>
     )
