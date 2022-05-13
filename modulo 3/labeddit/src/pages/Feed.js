@@ -6,60 +6,34 @@ import { useForms } from "../hooks/useForms";
 import { CardFeed } from "../components/CardFeed";
 import { useProtectedPage } from "../hooks/useProtect";
 import { Box, Button, TextField } from "@mui/material";
+import {postRequest, getRequest, botaoLike, botaoDeslike} from "../services/requests"
+import { SettingsInputComposite } from "@mui/icons-material";
+
 
 export default function Feed() {
     useProtectedPage()
-    
+
     const navigate = useNavigate()
     const [post, setPost] = useState([])
     const [form, onChange, clean] = useForms({ titulo: "", body: "" })
-
 
     const deslogar = () => {
         window.localStorage.removeItem('token')
         navigate("/")
     }
-    
+
     const criarPosts = () => {
-        const url = "https://labeddit.herokuapp.com/posts"
         const body = {
             "title": form.titulo,
             "body": form.body
         }
-        const token = window.localStorage.getItem('token')
-        const headers = {
-            Authorization: token
-        }
-        axios
-            .post(url, body,
-                {
-                    headers: {
-                        Authorization: token
-                    }
-                })
-            .then((res) => {
-                pegarPosts()
-                clean()
-            })
-            .catch((err) => { alert(err.response) })
+        postRequest("posts", body, setPost)
+        
 
     }
 
-
     const pegarPosts = () => {
-        const url = "https://labeddit.herokuapp.com/posts"
-        const token = window.localStorage.getItem('token')
-
-        axios
-            .get(url, {
-                headers: {
-                    Authorization: token
-                }
-            })
-            .then((res) => {
-                setPost(res.data)
-            })
-            .catch((err) => { alert(err.response.data) })
+        getRequest("posts", setPost)
     }
 
     useEffect(() => {
@@ -74,14 +48,14 @@ export default function Feed() {
             </div>
 
             <Box component={"form"} onSubmit={criarPosts}>
-                <TextField 
+                <TextField
                     placeholder="Titulo do Post"
                     value={form.titulo}
                     onChange={onChange}
                     name="titulo"
                 ></TextField>
                 <br />
-                <TextField 
+                <TextField
                     placeholder="Escreva Seu Post..."
                     value={form.body}
                     onChange={onChange}
@@ -95,14 +69,19 @@ export default function Feed() {
             <div>
                 {post.map((post) => {
                     return (
-                        <CardFeed
-                            username={post.username}
-                            title={post.title}
-                            body={post.body}
-                            voteSum={post.voteSum}
-                            commentCount={post.commentCount}
-                            id={post.id}
-                        />
+                        <div>
+                            <CardFeed
+                                username={post.username}
+                                title={post.title}
+                                body={post.body}
+                                voteSum={post.voteSum}
+                                commentCount={post.commentCount}
+                                id={post.id}
+                            />
+                            <button onClick={() => botaoLike(post.userVote, post.id, "posts", setPost, "posts")}>like</button>
+                            <button onClick={() => botaoDeslike(post.userVote, post.id, "posts", setPost, "posts")}>deslike</button>
+                            <br /><br /><br />
+                        </div>
                     )
                 })}
             </div>
