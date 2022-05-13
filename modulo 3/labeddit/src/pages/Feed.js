@@ -6,9 +6,9 @@ import { useForms } from "../hooks/useForms";
 import { CardFeed } from "../components/CardFeed";
 import { useProtectedPage } from "../hooks/useProtect";
 import { Box, Button, TextField } from "@mui/material";
-import {postRequest, getRequest, botaoLike, botaoDeslike} from "../services/requests"
-import { SettingsInputComposite } from "@mui/icons-material";
-
+import {postRequest, getRequest, botaoLike, botaoDeslike} from "../services/requests";
+import ArrowDownwardOutlinedIcon from '@mui/icons-material/ArrowDownwardOutlined';
+import ArrowUpwardOutlinedIcon from '@mui/icons-material/ArrowUpwardOutlined';
 
 export default function Feed() {
     useProtectedPage()
@@ -39,6 +39,8 @@ export default function Feed() {
     useEffect(() => {
         pegarPosts()
     }, [])
+
+
 
     return (
         <div>
@@ -78,8 +80,14 @@ export default function Feed() {
                                 commentCount={post.commentCount}
                                 id={post.id}
                             />
-                            <button onClick={() => botaoLike(post.userVote, post.id, "posts", setPost, "posts")}>like</button>
-                            <button onClick={() => botaoDeslike(post.userVote, post.id, "posts", setPost, "posts")}>deslike</button>
+                            <ArrowUpwardOutlinedIcon 
+                            sx={{ color: post.userVote == 1 ? "green" : "black"}} 
+                            onClick={() => botaoLike(post.userVote, post.id, "posts", setPost, "posts")}
+                            >like</ArrowUpwardOutlinedIcon>
+                            <ArrowDownwardOutlinedIcon 
+                            sx={{ color: post.userVote == -1 ? "red" : "black"}} 
+                            onClick={() => botaoDeslike(post.userVote, post.id, "posts", setPost, "posts")}
+                            >deslike</ArrowDownwardOutlinedIcon>
                             <br /><br /><br />
                         </div>
                     )

@@ -7,6 +7,9 @@ import { useForms } from "../hooks/useForms";
 import { useProtectedPage } from "../hooks/useProtect";
 import { Box, Button, TextField } from "@mui/material";
 import {postRequest, getRequest, botaoLike, botaoDeslike} from "../services/requests"
+import ArrowDownwardOutlinedIcon from '@mui/icons-material/ArrowDownwardOutlined';
+import ArrowUpwardOutlinedIcon from '@mui/icons-material/ArrowUpwardOutlined';
+
 
 
 export default function Post() {
@@ -79,8 +82,14 @@ console.log(postId.id);
                 commentCount={post.commentCount}
                 id={post.id}
             />
-            <button onClick={() => botaoLike(post.userVote, post.id, "posts", setPost, "posts")}>like</button>
-            <button onClick={() => botaoDeslike(post.userVote, post.id, "posts", setPost, "posts")}>deslike</button>
+            <ArrowUpwardOutlinedIcon 
+            sx={{ color: post.userVote == 1 ? "green" : "black"}} 
+            onClick={() => botaoLike(post.userVote, post.id, "posts", setPost, "posts")}
+            >like</ArrowUpwardOutlinedIcon>
+            <ArrowDownwardOutlinedIcon 
+            sx={{ color: post.userVote == -1 ? "red" : "black"}} 
+            onClick={() => botaoDeslike(post.userVote, post.id, "posts", setPost, "posts")}
+            >deslike</ArrowDownwardOutlinedIcon>
 
 
 
@@ -102,8 +111,14 @@ console.log(postId.id);
                         <p>{comment.username}</p>
                         <h3>{comment.body}</h3>
                         <p>{comment.voteSum}</p>
-                        <button onClick={() => botaoLike(comment.userVote, comment.id, `comments`,setComments, `posts/${postId.id}/comments`)}>like</button>
-                        <button onClick={() => botaoDeslike(comment.userVote, comment.id,`comments` , setComments,`posts/${postId.id}/comments`)}>deslike</button>
+                        <ArrowUpwardOutlinedIcon 
+                        sx={{ color: comment.userVote == 1 ? "green" : "black"}} 
+                        onClick={() => botaoLike(comment.userVote, comment.id, `comments`,setComments, `posts/${postId.id}/comments`)}
+                        >like</ArrowUpwardOutlinedIcon>
+                        <ArrowDownwardOutlinedIcon 
+                        sx={{ color: comment.userVote == -1 ? "red" : "black"}} 
+                        onClick={() => botaoDeslike(comment.userVote, comment.id,`comments` , setComments,`posts/${postId.id}/comments`)}
+                        >deslike</ArrowDownwardOutlinedIcon>
                        
                     </div>
                 )
