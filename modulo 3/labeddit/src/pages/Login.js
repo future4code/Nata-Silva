@@ -4,6 +4,36 @@ import { useNavigate } from "react-router-dom";
 import { Box, Button, TextField } from "@mui/material";
 import { useForms } from "../hooks/useForms";
 import axios from "axios";
+import logo from "../imgs/Logo.png"
+import styled from "styled-components"
+
+
+const MainContainer = styled.div `
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    h3{
+        text-align: center;
+        color: #bb62de;
+        margin-bottom: 10px;
+    }
+
+`
+const Logo = styled.img `
+    margin-top: 20%;
+    width: 50vh;
+    margin-left : 5vh;
+`
+const Botoes = styled.button `
+    width: 90vw;
+    margin-bottom: 40%;
+`
+
+
+
 
 export default function Login() {
     const navigate = useNavigate()
@@ -31,10 +61,10 @@ export default function Login() {
     
 
     return (
-        <div>
+        <MainContainer>
             <div>
-                <h1>LabEddit</h1>
-                <p>O Projeto de Rede Social da Labenu</p>
+                <Logo src={logo} />
+                <h3>O Projeto de Rede Social da Labenu</h3>
             </div>
 
             <Box component={"form"} onSubmit={postarLogin}>
@@ -45,7 +75,7 @@ export default function Login() {
                     label="Email"
                     value={form.email}
                     onChange={onChange}
-                    sx={{ width: "60vh", mb: "10px" }} />
+                    sx={{ width: "90vw", mb: "10px" }} />
                 <br />
                 <TextField
                     name="senha"
@@ -54,14 +84,14 @@ export default function Login() {
                     label="Senha"
                     value={form.senha}
                     onChange={onChange}
-                    sx={{ width: "60vh", mb: "10px" }} />
+                    sx={{ width: "90vw", mb: "10px" }} />
                 <br />
-                <div>
+                <Botoes>
                     <Button type="submit" sx={{ "&:hover": { backgroundColor: "#439ea1", color: "black" } }}>Continuar</Button>
                     <Button onClick={() => irPraCadastro(navigate)} sx={{ "&:hover": { backgroundColor: "#439ea1", color: "black" } }}>Criar Uma conta</Button>
-                </div>
+                </Botoes>
             </Box>
 
-        </div >
+        </MainContainer >
     )
 }

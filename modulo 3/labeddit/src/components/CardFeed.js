@@ -2,28 +2,48 @@ import { useNavigate } from "react-router-dom"
 import { goToPostPage } from "../routes/coordinator"
 import styled from "styled-components"
 import axios from "axios"
+import { Button, CardActions, CardContent, Typography } from "@mui/material"
 
-const MainContainer = styled.div `
+
+const MainContainer = styled.div`
 cursor: pointer;
 background-color: dargray;
 margin-bottom: 5px;
+display: flex;
+flex-direction: column;
+align-items: center;
+text-align: center;
 `
 
 export const CardFeed = (props) => {
-    const  navigate = useNavigate()
-    
-  
+    const navigate = useNavigate()
+
+
 
 
 
     return (
-        <MainContainer onClick={()=>goToPostPage(navigate, props.id)}>
-            <p>Eviado Por: {props.username}</p>
-            <p>Titulo:{props.title}</p>
-            <h3>{props.body}</h3>
-            <button> ↕ {props.voteSum} </button>
-            <button>Comentarios: {props.commentCount}</button>
+
+        <MainContainer>
+            <CardContent onClick={()=>goToPostPage(navigate, props.id)}>
+                <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+                    Enviado por: {props.username}
+                </Typography>
+                <Typography variant="body2">
+                    Titulo: {props.title}
+                    <br/>
+                </Typography>
+                <Typography variant="h5" component="div">
+                    {props.body}
+                </Typography>
+                {/* <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                </Typography> */}
+            </CardContent>
             
+            <CardActions>
+                 ⇧({props.voteSum})⇩  | 💬 ( {props.commentCount} )
+            </CardActions>
         </MainContainer>
+
     )
 }

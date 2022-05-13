@@ -3,8 +3,7 @@ const BASE_URL = "https://labeddit.herokuapp.com"
 
 
 
-export const postRequest = (endpoint, body, setData) => {
-    console.log(body)
+export const postRequest = (endpoint, body, setData, clean) => {
     const token = window.localStorage.getItem('token')
     const headers = {
         headers: {
@@ -15,13 +14,14 @@ export const postRequest = (endpoint, body, setData) => {
         .post(`${BASE_URL}/${endpoint}`, body, headers)
         .then((res) => {
             getRequest(endpoint, setData )
+            clean()
+            console.log("ok⇩")
         })
         .catch((err) => { alert(err.response) })
 
 }
 
 export const getRequest = (endpoint, setData) => {
-    console.log(endpoint, setData)
     const token = window.localStorage.getItem('token')
     const headers = {
         headers: {
@@ -32,6 +32,7 @@ export const getRequest = (endpoint, setData) => {
         .get(`${BASE_URL}/${endpoint}`, headers  )
         .then((res) => {
             setData(res.data)
+
         })
         .catch((err) => { console.log(err.response) })
 }

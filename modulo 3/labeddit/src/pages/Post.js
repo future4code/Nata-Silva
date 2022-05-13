@@ -6,11 +6,57 @@ import { CardFeed } from "../components/CardFeed";
 import { useForms } from "../hooks/useForms";
 import { useProtectedPage } from "../hooks/useProtect";
 import { Box, Button, TextField } from "@mui/material";
-import {postRequest, getRequest, botaoLike, botaoDeslike} from "../services/requests"
+import { postRequest, getRequest, botaoLike, botaoDeslike } from "../services/requests"
 import ArrowDownwardOutlinedIcon from '@mui/icons-material/ArrowDownwardOutlined';
 import ArrowUpwardOutlinedIcon from '@mui/icons-material/ArrowUpwardOutlined';
+import styled from "styled-components";
+import logo from "../imgs/Logo.png"
+
+const MainContainer = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: center;
+background-color: #f7f5f7;
+`
 
 
+const Menu = styled.div`
+background-color:  #f4f4f4 ;
+display: flex;
+justify-content: space-between;
+
+img {
+    width: 12vh;
+    margin-left: 15px;
+}
+
+`
+const BotaoMenu = styled.div`
+    border:none;
+    color: gray;
+    margin-right: 15px;
+    margin-top: 8px;
+`
+
+const Cards = styled.div`
+    border: 1px double;
+    border-radius: 10px;
+    margin-top: 8px;
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 6vw;
+`
+
+
+
+const MapDosCards = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+`
 
 export default function Post() {
     useProtectedPage()
@@ -22,7 +68,6 @@ export default function Post() {
     const [comments, setComments] = useState([])
     const postId = useParams()
     const [form, onChange, clean] = useForms({ body: "" })
-console.log(postId.id);
 
     const deslogar = () => {
         window.localStorage.removeItem('token')
@@ -48,8 +93,8 @@ console.log(postId.id);
         const body = {
             "body": form.body
         }
-    postRequest(`posts/${postId.id}/comments`, body, setComments)
-    
+        postRequest(`posts/${postId.id}/comments`, body, setComments, clean)
+
     }
 
 
@@ -63,69 +108,78 @@ console.log(postId.id);
     }, [postId])
 
     useEffect(() => {
-       post.length>0 && setPost( filtraPost(post))
-    }, [post] )
+        post.length > 0 && setPost(filtraPost(post))
+    }, [post])
 
     return (
-        <div>
-            <div>
-                <button onClick={() => irPraFeed(navigate)}>Voltar</button>
-                <img src="" />
-                <button onClick={deslogar}> Logout </button>
-            </div>
+        <MainContainer>
+            <Menu>
+                <img src={logo} />
+                <div>
+                    <BotaoMenu onClick={() => irPraFeed(navigate)}>Voltar</BotaoMenu>
+                    <BotaoMenu onClick={deslogar}> Logout </BotaoMenu>
+                </div>
+            </Menu>
             <br />
-            <CardFeed
-                username={post.username}
-                title={post.title}
-                body={post.body}
-                voteSum={post.voteSum}
-                commentCount={post.commentCount}
-                id={post.id}
-            />
-            <ArrowUpwardOutlinedIcon 
-            sx={{ color: post.userVote == 1 ? "green" : "black"}} 
-            onClick={() => botaoLike(post.userVote, post.id, "posts", setPost, "posts")}
-            >like</ArrowUpwardOutlinedIcon>
-            <ArrowDownwardOutlinedIcon 
-            sx={{ color: post.userVote == -1 ? "red" : "black"}} 
-            onClick={() => botaoDeslike(post.userVote, post.id, "posts", setPost, "posts")}
-            >deslike</ArrowDownwardOutlinedIcon>
+            <Cards>
+                <CardFeed
+                    username={post.username}
+                    title={post.title}
+                    body={post.body}
+                    voteSum={post.voteSum}
+                    commentCount={post.commentCount}
+                    id={post.id}
+                />
+                <div>
+                    <ArrowUpwardOutlinedIcon
+                        sx={{ color: post.userVote == 1 ? "green" : "black" }}
+                        onClick={() => botaoLike(post.userVote, post.id, "posts", setPost, "posts")}
+                    >like</ArrowUpwardOutlinedIcon>
+                    <ArrowDownwardOutlinedIcon
+                        sx={{ color: post.userVote == -1 ? "red" : "black" }}
+                        onClick={() => botaoDeslike(post.userVote, post.id, "posts", setPost, "posts")}
+                    >deslike</ArrowDownwardOutlinedIcon>
+                </div>
+            </Cards>
 
 
-
-            <Box component={"form"} onSubmit={criarComentario}>
+            <Box sx={{textAlign: "center"}} component={"form"} onSubmit={criarComentario}>
                 <TextField
-                    placeholder="Comentario"
+                    sx={{ width: "80vw", mb: "10px"}}
+                    variant="filled"
+                    label="Comentario"
                     value={form.body}
                     onChange={onChange}
                     name="body"
                 />
+                <br/>
                 <Button type="submit"> Enviar </Button>
             </Box>
 
+            <MapDosCards>
+                {comments.map((comment) => {
 
-            {comments.map((comment) => {
+                    return (
+                        <Cards>
+                            <p>{comment.username}</p>
+                            <h3>{comment.body}</h3>
+                            <p>{comment.voteSum}</p>
+                            <div>
+                                <ArrowUpwardOutlinedIcon
+                                    sx={{ color: comment.userVote == 1 ? "green" : "black" }}
+                                    onClick={() => botaoLike(comment.userVote, comment.id, `comments`, setComments, `posts/${postId.id}/comments`)}
+                                >like</ArrowUpwardOutlinedIcon>
+                                <ArrowDownwardOutlinedIcon
+                                    sx={{ color: comment.userVote == -1 ? "red" : "black" }}
+                                    onClick={() => botaoDeslike(comment.userVote, comment.id, `comments`, setComments, `posts/${postId.id}/comments`)}
+                                >deslike</ArrowDownwardOutlinedIcon>
+                            </div>
+                        </Cards>
+                    )
+                })}
+            </MapDosCards>
 
-                return (
-                    <div>
-                        <p>{comment.username}</p>
-                        <h3>{comment.body}</h3>
-                        <p>{comment.voteSum}</p>
-                        <ArrowUpwardOutlinedIcon 
-                        sx={{ color: comment.userVote == 1 ? "green" : "black"}} 
-                        onClick={() => botaoLike(comment.userVote, comment.id, `comments`,setComments, `posts/${postId.id}/comments`)}
-                        >like</ArrowUpwardOutlinedIcon>
-                        <ArrowDownwardOutlinedIcon 
-                        sx={{ color: comment.userVote == -1 ? "red" : "black"}} 
-                        onClick={() => botaoDeslike(comment.userVote, comment.id,`comments` , setComments,`posts/${postId.id}/comments`)}
-                        >deslike</ArrowDownwardOutlinedIcon>
-                       
-                    </div>
-                )
-            })}
-
-
-        </div>
+        </MainContainer>
 
     )
 }
