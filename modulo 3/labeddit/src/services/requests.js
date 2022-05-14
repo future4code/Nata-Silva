@@ -33,7 +33,7 @@ export const getRequest = (endpoint, setData) => {
             setData(res.data)
 
         })
-        .catch((err) => { console.log(err.response) })
+        .catch((err) => { alert(err.response) })
 }
 
 
