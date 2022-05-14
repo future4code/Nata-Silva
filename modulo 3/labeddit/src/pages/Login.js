@@ -52,7 +52,6 @@ export default function Login() {
             .post(url, body)
             .then((res) => {
                 localStorage.setItem("token", res.data.token)
-                console.log(res.data.token)
                 irPraFeed(navigate)
             })
             .catch((err) => { alert("Email ou Senha Incorreta, tem certeza que está cadastrado?") })

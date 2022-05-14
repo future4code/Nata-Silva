@@ -15,7 +15,6 @@ export const postRequest = (endpoint, body, setData, clean) => {
         .then((res) => {
             getRequest(endpoint, setData )
             clean()
-            console.log("ok⇩")
         })
         .catch((err) => { alert(err.response) })
 

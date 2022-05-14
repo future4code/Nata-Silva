@@ -84,7 +84,6 @@ export default function Feed() {
     const pegarPosts = () => {
         getRequest("posts", setPost)
     }
-    console.log(post)
     useEffect(() => {
         pegarPosts()
     }, [])

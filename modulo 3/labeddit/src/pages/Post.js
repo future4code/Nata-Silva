@@ -76,7 +76,6 @@ export default function Post() {
 
     // Função de Criar Comentarios nos posts
     const filtraPost = (posts) => {
-        console.log(posts)
         return posts.find((post) => post.id === postId.id)
     }
 
