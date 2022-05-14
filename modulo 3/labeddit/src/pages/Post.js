@@ -102,11 +102,11 @@ export default function Post() {
         getRequest(`posts/${id}/comments`, setComments)
     }
 
+
     useEffect(() => {
         pegarPosts()
         postId && pegarComentarios(postId.id)
     }, [postId])
-
     useEffect(() => {
         post.length > 0 && setPost(filtraPost(post))
     }, [post])
@@ -157,7 +157,9 @@ export default function Post() {
             </Box>
 
             <MapDosCards>
-                {comments.map((comment) => {
+            {  comments.length > 0 ?
+         
+                comments.map((comment) => {
 
                     return (
                         <Cards>
@@ -176,7 +178,10 @@ export default function Post() {
                             </div>
                         </Cards>
                     )
-                })}
+                })
+                : <p>Carregando...</p>
+
+            }
             </MapDosCards>
 
         </MainContainer>

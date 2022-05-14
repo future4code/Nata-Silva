@@ -128,7 +128,9 @@ export default function Feed() {
                 </Boxx>
 
                 <div>
-                    {post.map((post) => {
+                {  post.length > 0 ?
+
+                    post.map((post) => {
                         return (
                             <Cards>
                                 <CardFeed
@@ -152,7 +154,9 @@ export default function Feed() {
                                 </div>
                             </Cards>
                         )
-                    })}
+                    })
+                    : <p>Carregando...</p>
+                }
                 </div>
             </MainContainer>
         </div>
