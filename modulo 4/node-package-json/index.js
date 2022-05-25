@@ -1,6 +1,6 @@
-// // Exercício 1
+// Exercício 1
 
-// // A: Pode ser passado pela API ou pelo "process.argv"
+// A: Pode ser passado pela API ou pelo "process.argv"
 
 
 
@@ -42,9 +42,9 @@
 // // Exercício 3
 
 //     const stringRecebida = process.argv[2]
-//     console.log("Tarefa adicionada com sucesso!")
 //     const tarefas = []
 //     tarefas.push(stringRecebida)
+//     console.log("Tarefa adicionada com sucesso!")
 //     console.log(tarefas)
 
 
