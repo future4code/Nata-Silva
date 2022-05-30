@@ -30,7 +30,7 @@ type User = {
 
  const array: User[] =[
     {
-        id: 2,
+        id: 1,
         name: "natã",
         phone: 81994965126,
         email: "natan@gmail.com",
