@@ -104,3 +104,5 @@ app.get("/afazeres/:userId", (req, res) => {
   res.send(novoarray)
 })
 
+// 9 
+// feito
