@@ -95,7 +95,6 @@ app.get("/actor/:id", async (req: Request, res: Response) => {
           .where({id: req.params.id})
     
           res.status(200).send(actor)
-    \
         } catch (err) {
             res.status(500).send("Error")
         }
@@ -121,6 +120,27 @@ app.get("/actor/:id", async (req: Request, res: Response) => {
     
     
     //Exercício 4
+
+    app.post("/actor", async (req: Request, res: Response) => {
+        try {
+          await (
+            req.body.id,
+            req.body.name,
+            req.body.salary,
+            new Date(req.body.dateOfBirth),
+            req.body.salary
+          );
+      
+          res.status(200).send("criado");
+        } catch (err: any) {
+          res.status(400).send({
+            message: err.message,
+          });
+        }
+      });
+
+
+
     
     //A)
     
