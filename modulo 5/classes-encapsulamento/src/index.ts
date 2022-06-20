@@ -11,7 +11,7 @@
 // 1:
 
 // a)   método construtor serve para inicializar as informações de uma classe
-
+//
 // b)    apareceu uma vez pois coloquei tudo em um objeto
 class UserAccount {
     private cpf: string;
