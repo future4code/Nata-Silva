@@ -1,0 +1,15 @@
+GET http://localhost:3003/actor
+
+###
+
+GET /actor/moacyr_franco
+
+###
+
+GET http://localhost:3003/actors/female/count
+
+
+###
+
+PUT http://localhost:3003/actor/salary/5
+
