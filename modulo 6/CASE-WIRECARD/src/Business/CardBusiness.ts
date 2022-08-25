@@ -60,15 +60,16 @@ export class CardBusiness {
             throw new Error("The card already exist");    
         }
 
-
+        const id = idGenerate.generateId()
         await cardData.Card({
-            id: idGenerate.generateId(),
+            id,
             number: number,
             name: name,
             expiration: expiration,
             cvv: hash,
             userId: getTokenData.id
         })
+        console.log(id)
     }
 
 

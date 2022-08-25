@@ -5,6 +5,7 @@ import { BaseDatabase } from "./BaseDatabase";
 export class CardData extends BaseDatabase {
 
     Card = async (card:CreditCard) => {
+        console.log(card.id)
         await this.connection("Card_wirecard")
         .insert({
             id: card.id,
